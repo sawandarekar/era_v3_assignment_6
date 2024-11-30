@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  session_6_run:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
 
     - name: Convert and Execute Notebook
       run: |
-        jupyter nbconvert --to python era_v3_session_6.ipynb
+        jupyter nbconvert --to python ERA_V3_Session_6.ipynb
         python era_v3_session_6.py
 
     - name: Run Tests
