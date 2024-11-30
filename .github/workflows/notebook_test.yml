@@ -25,17 +25,27 @@ jobs:
 
     - name: Convert and Execute Notebook
       run: |
-        # Convert notebook to python script with special flags to handle IPython commands
-        jupyter nbconvert --to python ERA_V3_Session_6.ipynb --template python_clean
+        # Convert notebook to python script
+        jupyter nbconvert --to python ERA_V3_Session_6.ipynb
         
-        # Remove any IPython-specific commands from the converted script
-        sed -i '/get_ipython/d' ERA_V3_Session_6.py
+        # Create a temporary file for modifications
+        cat > temp_script.py << 'EOF'
+        import torch
+        import torch.nn as nn
+        import torch.optim as optim
+        import torchvision
+        import torchvision.transforms as transforms
+        from torchsummary import summary
+        from tqdm import tqdm
+        EOF
         
-        # Add torchsummary import at the top of the file
-        sed -i '1i\from torchsummary import summary' ERA_V3_Session_6.py
+        # Append the converted notebook code after removing IPython commands
+        sed '/get_ipython/d' ERA_V3_Session_6.py >> temp_script.py
         
-        # Rename and execute
-        mv ERA_V3_Session_6.py era_v3_session_6.py
+        # Replace original file with modified version
+        mv temp_script.py era_v3_session_6.py
+        
+        # Execute the script
         python era_v3_session_6.py
 
     - name: Run Tests
