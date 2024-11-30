@@ -21,13 +21,23 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install jupyter nbconvert torch torchvision pytest numpy
+        pip install jupyter nbconvert torch torchvision pytest numpy matplotlib tqdm
 
     - name: Convert and Execute Notebook
       run: |
         jupyter nbconvert --to python ERA_V3_Session_6.ipynb
+        mv ERA_V3_Session_6.py era_v3_session_6.py
         python era_v3_session_6.py
 
     - name: Run Tests
       run: |
-        pytest tests/test_model.py -v 
+        pytest tests/test_model.py -v
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: |
+          final_accuracy.txt
+          test-results.xml
