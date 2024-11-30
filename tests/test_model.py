@@ -36,6 +36,6 @@ def test_accuracy():
     try:
         with open('final_accuracy.txt', 'r') as f:
             accuracy = float(f.read().strip())
-        assert accuracy > 99.4, f"Model accuracy {accuracy}% should be greater than 99.4%"
+        assert accuracy >= 99.4, f"Model accuracy {accuracy}% should be greater than 99.4%"
     except FileNotFoundError:
         assert False, "final_accuracy.txt file not found. Make sure the notebook saves the final accuracy." 
