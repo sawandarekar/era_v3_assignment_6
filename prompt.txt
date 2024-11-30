@@ -1,0 +1,6 @@
+write github action file where era_v3_session_6.pynyb will be exectuted on github, after its get exectute
+add test cases where it will test following parameters
+Total Parameter Count Test
+Use of Batch Normalization
+Use of DropOut
+Use of Fully Connected Layer or GAP
