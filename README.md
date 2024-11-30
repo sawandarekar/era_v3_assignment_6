@@ -1,5 +1,21 @@
 # ERA V3 Session 6
 
+[![Notebook Test Workflow](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg)](https://github.com/{username}/{repository-name}/actions/workflows/notebook_test.yml)
+
+This repository contains the assignment for Session 6 of ERA V3. The model implementation follows these specifications:
+
+## Model Requirements Status
+| Requirement | Status |
+|------------|---------|
+| Parameters < 20k | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=parameters) |
+| Batch Normalization | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=batch-norm) |
+| Dropout | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=dropout) |
+| GAP/FC Layer | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=architecture) |
+| Accuracy > 99.4% | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=accuracy) |
+
+
+
+
 ## Situation:
   Tasked with an advanced assignment involving deep learning concepts covered in recent lectures, focusing on building a neural network that achieves high validation/test accuracy with specific constraints. 
   The assignment required integrating various techniques like Batch Normalization, Dropout, and managing parameters effectively.
@@ -194,19 +210,3 @@ epoch=20 loss=0.010763414204120636 batch_id=468: 100%|████████�
 
 Test set: Average loss: 0.0191, Accuracy: 9949/10000 (99.49%)
 ```
-
-
-[![Notebook Test Workflow](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg)](https://github.com/{username}/{repository-name}/actions/workflows/notebook_test.yml)
-
-This repository contains the assignment for Session 6 of ERA V3. The model implementation follows these specifications:
-
-## Model Requirements Status
-| Requirement | Status |
-|------------|---------|
-| Parameters < 20k | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=parameters) |
-| Batch Normalization | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=batch-norm) |
-| Dropout | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=dropout) |
-| GAP/FC Layer | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=architecture) |
-| Accuracy > 99.4% | ![Test Status](https://github.com/sawandarekar/era_v3_assignment_6/actions/workflows/notebook_test.yml/badge.svg?event=push&label=accuracy) |
-
-
