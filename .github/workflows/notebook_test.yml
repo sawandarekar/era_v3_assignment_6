@@ -21,11 +21,20 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install jupyter nbconvert torch torchvision pytest numpy matplotlib tqdm
+        pip install jupyter nbconvert torch torchvision pytest numpy matplotlib tqdm torchsummary ipykernel
 
     - name: Convert and Execute Notebook
       run: |
-        jupyter nbconvert --to python ERA_V3_Session_6.ipynb
+        # Convert notebook to python script with special flags to handle IPython commands
+        jupyter nbconvert --to python ERA_V3_Session_6.ipynb --template python_clean
+        
+        # Remove any IPython-specific commands from the converted script
+        sed -i '/get_ipython/d' ERA_V3_Session_6.py
+        
+        # Add torchsummary import at the top of the file
+        sed -i '1i\from torchsummary import summary' ERA_V3_Session_6.py
+        
+        # Rename and execute
         mv ERA_V3_Session_6.py era_v3_session_6.py
         python era_v3_session_6.py
 
