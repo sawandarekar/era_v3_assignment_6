@@ -38,6 +38,28 @@ jobs:
         import torchvision.transforms as transforms
         from torchsummary import summary
         from tqdm import tqdm
+        import re
+
+        def save_accuracy(log_line):
+            if "Test set: Average loss:" in log_line:
+                # Extract accuracy using regex
+                match = re.search(r'Accuracy: \d+/\d+ \((\d+\.\d+)%\)', log_line)
+                if match:
+                    accuracy = float(match.group(1))
+                    with open('final_accuracy.txt', 'w') as f:
+                        f.write(str(accuracy))
+
+        # Store the original print function
+        original_print = print
+
+        # Define a new print function that also checks for accuracy
+        def custom_print(*args, **kwargs):
+            line = " ".join(map(str, args))
+            save_accuracy(line)
+            original_print(*args, **kwargs)
+
+        # Replace the built-in print function
+        print = custom_print
         EOF
         
         # Append the converted notebook code after removing IPython commands and __future__ imports

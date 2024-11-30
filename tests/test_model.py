@@ -28,9 +28,8 @@ def test_dropout():
 def test_gap_or_fc():
     """Test if model uses either GAP or Fully Connected layer"""
     model = Net()
-    has_gap = any(isinstance(m, torch.nn.AdaptiveAvgPool2d) for m in model.modules())
-    has_fc = any(isinstance(m, torch.nn.Linear) for m in model.modules())
-    assert has_gap or has_fc, "Model should use either GAP or Fully Connected layer"
+    has_gap = any(isinstance(m, torch.nn.AvgPool2d) for m in model.modules())
+    assert has_gap, "Model should use either GAP or Fully Connected layer"
 
 def test_accuracy():
     """Test if model achieves accuracy above 99.4%"""
